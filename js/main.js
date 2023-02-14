@@ -1,6 +1,7 @@
 while(true){
     var precioCosto = parseFloat(prompt("ingrese el precio del producto"));
-    if(!isNaN(precioCosto)&& precioCosto != null && precioCosto != ""){
+
+    if(!isNaN(precioCosto) && precioCosto != null && precioCosto != ""){
         //alert("es numero")
         break;
     }else{
