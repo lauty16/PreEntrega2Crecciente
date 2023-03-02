@@ -1,54 +1,36 @@
-while(true){
-    var precioCosto = parseFloat(prompt("ingrese el precio del producto"));
-
-    if(!isNaN(precioCosto) && precioCosto != null && precioCosto != ""){
-        //alert("es numero")
-        break;
-    }else{
-        alert("no es numero");
-        continue;
-    }
-}
-precioCostoM = precioCosto.toFixed(2);
-alert("El precio de costo del producto a calcular es:$ "*precioCostoM);
-console.log("El precio de costo del producto a calcular es: $"+precioCostoM);
-document.write("<h3>El precio de costo del producto a calcular es: $"+precioCostoM+"</h3>");
-//SUMAR EL IVA AL PRODUCTO
-function CalcularIva (precioCosto){
-    return (precioCosto * 0.21 )
-}
-var iva = CalcularIva(precioCosto);
-ivaM=  iva.toFixed(2);
 
 
-alert("El IVA del producto es: $"+ivaM);
-console.log("El IVA del producto es: $"+ivaM);
-document.write("<h3>El IVA del producto ingresado es: $"+ivaM+"</h3>")
+const imputBase = document.querySelector('#baseImponible');
+let inputIVA = document.querySelector('#IVA');
+let inputTotal = document.querySelector('#total');
+let imputPrecioFinal = document.querySelector('#precioFinal');
+let imputVenta = document.querySelector('#venta');
+const tipoIVA = 0.21;
+const tipoVenta = 1.21;
 
 
-//sumarle el iva al precio del producto con IVA 
-function SumarIva(precioCosto){
-    return(precioCosto + (precioCosto * 0.21));
-}
 
-var precioConIva = SumarIva(precioCosto);
-precioConIvaM= precioConIva.toFixed(2);
-
-
-alert("El precio del producto con IVA incluido es: $"+precioConIvaM);
-console.log("El precio del producto con IVA incluido es: $"+precioConIvaM);
-document.write("<h3>El precio del producto con IVA incluido es: $"*precioConIvaM*"</h3>")
-
-//calcular precio sugerido de venta
-function CalculaPrecioVenta(precioConIva){
-    return(precioConIva * 1.25);
+function  calcular() {
+    const base = Number(imputBase.value);
+    console.log("El valor del producto es: $"+base)
+    const IVA = base * tipoIVA;
+    inputIVA.value = IVA;
+    console.log("El iva del producto es: "+IVA)
+    const total = base + IVA;
+    console.log("El valor del producto con IVA es: $"+total)
+    inputTotal.value = total; 
+    const venta = total * tipoVenta;
+    console.log("El valor para la venta del producto es de: $"+venta); 
+    imputVenta.value = venta; 
+    
 }
 
 
 
-var precioVenta = CalculaPrecioVenta(precioConIva);
-precioVentaM=  precioVenta.toFixed(2);
 
-alert("El precio Sugerido para la venta es: $"+precioVentaM)
-console.log("El precio Sugerido para la venta es: $"+precioVentaM);
-document.write("<h3>El precio Sugerido para la venta es: $"+precioVentaM+"</h3>")
+
+
+
+
+
+
